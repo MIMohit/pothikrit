@@ -87,3 +87,7 @@ Note: the original full-size images in the repo root (`logo.jpg`, `Soily.png`, â
 - [ ] Legal text (Terms, Privacy Policy, Disclaimer) should be reviewed by a lawyer before launch.
 - [ ] Connect the contact form to an endpoint (see above), if direct submissions are wanted.
 - [ ] Researched content for digital-safety.html and know-your-rights.html (placeholders marked `<!-- CONTENT:â€¦ -->`); Research and Awareness pages are "Coming soon".
+
+## After editing CSS or JS
+
+Browsers cache files in `assets/` for a day. After changing `styles.css`, `main.js` or `consent.js`, run `python3 tools/version-assets.py` and commit the updated HTML, so visitors get the new files straight away.

@@ -99,7 +99,7 @@
   if (header) {
     var lastY = window.pageYOffset;
     var pointerNearTop = false;
-    var ticking = false;
+
     var REVEAL_ZONE = 80; // px from the top of the window
 
     function headerBusy() {
@@ -110,7 +110,7 @@
     }
 
     function updateHeader() {
-      ticking = false;
+
       var y = window.pageYOffset;
       var h = header.offsetHeight;
       var nearPageTop = y <= h;
@@ -126,9 +126,9 @@
       lastY = y;
     }
 
-    window.addEventListener("scroll", function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(updateHeader); }
-    }, { passive: true });
+    // Run on every scroll event (cheap: one class toggle), so the header
+    // reacts immediately even where animation frames are throttled.
+    window.addEventListener("scroll", updateHeader, { passive: true });
 
     // Desktop: reveal when the cursor moves to the top edge of the window.
     document.addEventListener("mousemove", function (e) {
