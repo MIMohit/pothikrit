@@ -66,7 +66,7 @@
   }
 
   /* ---- Contact form ------------------------------------------------------ */
-  var CONTACT_EMAIL = "info@pothikrit.com";
+  var CONTACT_EMAIL = "info@pothikrit.org";
   var form = document.querySelector("form[data-contact-form]");
   if (!form) return;
 
@@ -156,7 +156,7 @@
       "",
       value("cf-msg"),
       "",
-      "— Sent via the contact form on pothikrit.com. I agree that Pothikrit may use these details to respond to my enquiry."
+      "— Sent via the contact form on pothikrit.org. I agree that Pothikrit may use these details to respond to my enquiry."
     ];
     return "mailto:" + CONTACT_EMAIL +
       "?subject=" + encodeURIComponent(subject) +

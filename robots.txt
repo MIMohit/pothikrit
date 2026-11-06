@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pothikrit.com/sitemap.xml
+Sitemap: https://pothikrit.org/sitemap.xml

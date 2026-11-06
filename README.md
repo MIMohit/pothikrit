@@ -15,7 +15,7 @@ disclaimer.html     Legal Disclaimer
 legal.html          Index of the three legal pages
 404.html            Not-found page (uses root-relative /assets/… paths so it works at any URL depth)
 robots.txt
-sitemap.xml         Base URL https://pothikrit.com
+sitemap.xml         Base URL https://pothikrit.org
 vercel.json         Vercel config: no build, static output from root, security headers
 .gitignore
 assets/
@@ -43,7 +43,7 @@ python3 -m http.server 8000
 
 The form in `index.html` and `contact.html` has a `data-endpoint` attribute, empty by default.
 
-- **No endpoint (default):** on submit, the script validates the fields and then opens the visitor's email app with a message to `info@pothikrit.com` pre-filled (subject + body). The page says clearly that the message has **not** been sent until they press Send in their email app.
+- **No endpoint (default):** on submit, the script validates the fields and then opens the visitor's email app with a message to `info@pothikrit.org` pre-filled (subject + body). The page says clearly that the message has **not** been sent until they press Send in their email app.
 - **With an endpoint:** the script POSTs the form data (as `FormData`, `Accept: application/json`) and only shows "sent" when the endpoint returns a success status. On failure it says nothing was delivered and offers the email fallback.
 
 To connect a form service, edit the `<form … data-endpoint="">` in both pages:
@@ -64,7 +64,7 @@ The site is hosted on Vercel from the GitHub repo [`MIMohit/pothikrit`](https://
 3. **Build Command:** leave empty / off (there is no build step). **Install Command:** none.
 4. **Output Directory:** `.` (the repository root). **Root Directory:** leave as the repo root.
 5. Deploy. Every push to `main` redeploys; pull requests get preview URLs.
-6. Add the custom domain `pothikrit.com` under **Settings → Domains**.
+6. Add the custom domain `pothikrit.org` under **Settings → Domains**.
 
 `vercel.json` keeps this explicit (no build, output from the root), leaves `cleanUrls` off so the site's `.html` links keep working exactly as written, and adds security headers to every response (`X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: DENY`, `Permissions-Policy`). Vercel serves `404.html` automatically for unknown paths.
 
@@ -73,8 +73,8 @@ Note: the original full-size images in the repo root (`logo.jpg`, `Soily.png`, �
 ## Other hosts
 
 - **Netlify / Cloudflare Pages:** publish the repository root; `404.html` is picked up automatically.
-- **GitHub Pages:** serve from the repository root. With a custom domain (pothikrit.com) everything works as-is. If served from a project sub-path (`user.github.io/repo/`), update the root-relative paths in `404.html`.
-- If the final domain is not `https://pothikrit.com`, update the canonical / Open Graph URLs in each page's `<head>`, the JSON-LD in `index.html`, `robots.txt` and `sitemap.xml`.
+- **GitHub Pages:** serve from the repository root. With a custom domain (pothikrit.org) everything works as-is. If served from a project sub-path (`user.github.io/repo/`), update the root-relative paths in `404.html`.
+- If the final domain is not `https://pothikrit.org`, update the canonical / Open Graph URLs in each page's `<head>`, the JSON-LD in `index.html`, `robots.txt` and `sitemap.xml`.
 
 ## TODO
 
