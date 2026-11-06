@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://pothikrit.org/</loc><lastmod>2026-11-07</lastmod><priority>1.0</priority></url>
-  <url><loc>https://pothikrit.org/contact.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://pothikrit.org/terms.html</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
-  <url><loc>https://pothikrit.org/privacy.html</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
-  <url><loc>https://pothikrit.org/disclaimer.html</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
-  <url><loc>https://pothikrit.org/legal.html</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
-  <url><loc>https://pothikrit.org/digital-safety.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://pothikrit.org/know-your-rights.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://pothikrit.org/research.html</loc><lastmod>2026-11-07</lastmod><priority>0.6</priority></url>
-  <url><loc>https://pothikrit.org/awareness.html</loc><lastmod>2026-11-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://pothikrit.org/contact</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://pothikrit.org/terms</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
+  <url><loc>https://pothikrit.org/privacy</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
+  <url><loc>https://pothikrit.org/disclaimer</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
+  <url><loc>https://pothikrit.org/legal</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
+  <url><loc>https://pothikrit.org/digital-safety</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://pothikrit.org/know-your-rights</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://pothikrit.org/research</loc><lastmod>2026-11-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://pothikrit.org/awareness</loc><lastmod>2026-11-07</lastmod><priority>0.6</priority></url>
 </urlset>

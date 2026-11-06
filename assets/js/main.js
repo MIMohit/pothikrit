@@ -93,6 +93,66 @@
     });
   }
 
+  /* ---- Smart header ------------------------------------------------------
+     Hides while scrolling down, comes back when scrolling up, when the
+     pointer moves near the top of the window, or when it holds focus. */
+  if (header) {
+    var lastY = window.pageYOffset;
+    var pointerNearTop = false;
+    var ticking = false;
+    var REVEAL_ZONE = 80; // px from the top of the window
+
+    function headerBusy() {
+      return header.classList.contains("is-open") ||
+        header.matches(":hover") ||
+        header.contains(document.activeElement) ||
+        triggers.some(function (b) { return b.getAttribute("aria-expanded") === "true"; });
+    }
+
+    function updateHeader() {
+      ticking = false;
+      var y = window.pageYOffset;
+      var h = header.offsetHeight;
+      var nearPageTop = y <= h;
+      header.classList.toggle("is-scrolled", !nearPageTop);
+      if (nearPageTop || pointerNearTop || headerBusy()) {
+        header.classList.remove("is-hidden");
+      } else if (y > lastY + 4) {
+        header.classList.add("is-hidden");
+        closeDropdowns();
+      } else if (y < lastY - 4) {
+        header.classList.remove("is-hidden");
+      }
+      lastY = y;
+    }
+
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(updateHeader); }
+    }, { passive: true });
+
+    // Desktop: reveal when the cursor moves to the top edge of the window.
+    document.addEventListener("mousemove", function (e) {
+      var near = e.clientY <= REVEAL_ZONE;
+      if (near === pointerNearTop) return;
+      pointerNearTop = near;
+      if (near) {
+        header.classList.remove("is-hidden");
+      } else if (window.pageYOffset > header.offsetHeight && !headerBusy()) {
+        // Pointer left the top area: tuck the header away again.
+        setTimeout(function () {
+          if (!pointerNearTop && !headerBusy() && window.pageYOffset > header.offsetHeight) {
+            header.classList.add("is-hidden");
+          }
+        }, 400);
+      }
+    });
+
+    // Keyboard users tabbing into the header always see it.
+    header.addEventListener("focusin", function () { header.classList.remove("is-hidden"); });
+
+    updateHeader();
+  }
+
   /* ---- Reveal on scroll -------------------------------------------------- */
   var revealEls = document.querySelectorAll(".reveal");
   if (reduceMotion || !("IntersectionObserver" in window)) {

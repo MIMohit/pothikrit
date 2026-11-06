@@ -37,11 +37,11 @@ The original source images (`logo.jpg`, `Soily.png`, `Rani.jpeg`, …) in the re
 
 ```sh
 cd /path/to/Pothikrit
-python3 -m http.server 8000
-# open http://localhost:8000/
+npx serve .          # supports clean URLs like /contact, same as Vercel
+# open http://localhost:3000/
 ```
 
-(Opening the files directly with `file://` also works for every page except `404.html`, which uses root-relative paths.)
+Links use clean URLs (`/contact`, `/digital-safety`, …) and `vercel.json` sets `cleanUrls: true`, so a plain `python3 -m http.server` will not resolve them; use `npx serve` instead.
 
 ## Contact form
 
