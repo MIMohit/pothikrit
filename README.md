@@ -9,6 +9,10 @@ Plain HTML + one CSS file + one small vanilla JS file. No framework, no build st
 ```
 index.html          Homepage (hero, about, areas of focus, founder's message, team, helplines, contact form)
 contact.html        Contact page (form, email, helplines, disclaimer)
+digital-safety.html Digital Safety guide (For you)
+know-your-rights.html Know Your Rights guide (For you)
+research.html       Research & Publications (coming soon)
+awareness.html      Awareness Programmes (coming soon)
 terms.html          Terms & Conditions
 privacy.html        Privacy Policy
 disclaimer.html     Legal Disclaimer
@@ -20,7 +24,7 @@ vercel.json         Vercel config: no build, static output from root, security h
 .gitignore
 assets/
   css/styles.css    All styles; colours/fonts are CSS custom properties at the top
-  js/main.js        Mobile menu, sticky-header shadow, scroll reveal, contact-form handling
+  js/main.js        Mobile menu, nav dropdowns, scroll reveal, contact-form handling
   img/logo.jpg                 512px circular-cropped logo
   img/favicon-64.png           Favicon
   img/apple-touch-icon.png     180px touch icon
@@ -82,4 +86,4 @@ Note: the original full-size images in the repo root (`logo.jpg`, `Soily.png`, â
 - [ ] Team photos missing for **Sumaya Yesmin, Sneha Chakma, Kuspean Dewan** (Digital Safety & Multidisciplinary Unit) and **Aong Ching Marma** (Community Outreach Unit); they currently show unit badges (DSU / COU).
 - [ ] Legal text (Terms, Privacy Policy, Disclaimer) should be reviewed by a lawyer before launch.
 - [ ] Connect the contact form to an endpoint (see above), if direct submissions are wanted.
-- [ ] Dedicated pages for Digital Safety, Know Your Rights and Research & Publications (the homepage cards currently have no "Learn more" links because those pages don't exist yet).
+- [ ] Researched content for digital-safety.html and know-your-rights.html (placeholders marked `<!-- CONTENT:â€¦ -->`); Research and Awareness pages are "Coming soon".

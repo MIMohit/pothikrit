@@ -35,40 +35,36 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="topbar on-dark">
-  <div class="container topbar__inner">
-    <span class="topbar__tag">Independent · Non-governmental · Public interest</span>
-    <span class="topbar__links"><a href="mailto:info@pothikrit.org">info@pothikrit.org</a><span>Emergency <a class="topbar__tel" href="tel:999">999</a></span></span>
-  </div>
-</div>
-
 <header class="site-header on-dark">
   <div class="container site-header__inner">
     <a class="brand" href="index.html" aria-label="Pothikrit — home">
-      <img class="brand__logo" src="assets/img/logo.jpg" alt="" width="60" height="60">
-      <span class="brand__text">
-        <span class="brand__names"><span class="brand__en">POTHIKRIT</span><span class="brand__bn" lang="bn">পথিকৃৎ</span></span>
-        <span class="brand__tag">Digital Rights · Cyber Safety · Legal Awareness</span>
-      </span>
+      <img class="brand__logo" src="assets/img/logo.jpg" alt="" width="42" height="42">
+      <span class="brand__names"><span class="brand__en">POTHIKRIT</span><span class="brand__bn" lang="bn">পথিকৃৎ</span></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
       <span class="nav-toggle__bars" aria-hidden="true"></span>
     </button>
-    <div class="nav-panel" id="nav-panel">
-      <nav class="nav" aria-label="Main">
-        <ul class="nav__list">
-        <li><a href="index.html#about">About us</a></li>
-        <li><a href="index.html#digital-safety">Digital safety</a></li>
-        <li><a href="index.html#know-your-rights">Know your rights</a></li>
-        <li><a href="index.html#research">Research &amp; Publications</a></li>
-        <li><a href="index.html#awareness">Awareness</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <a class="btn btn--outline" href="contact.html">Contact</a>
-        <a class="btn btn--gold" href="index.html#help">Get help</a>
-      </div>
-    </div>
+    <nav class="nav" id="nav-panel" aria-label="Main">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="index.html#about">About us</a></li>
+        <li class="nav__item"><a class="nav__link" href="index.html#people">Teams</a></li>
+        <li class="nav__item nav__item--has-menu">
+          <button class="nav__link nav__trigger" type="button" aria-expanded="false" aria-controls="menu-for-you">For you<span class="nav__caret" aria-hidden="true"></span></button>
+          <ul class="nav__menu" id="menu-for-you">
+            <li><a href="digital-safety.html">Digital Safety</a></li>
+            <li><a href="know-your-rights.html">Know Your Rights</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--has-menu">
+          <button class="nav__link nav__trigger" type="button" aria-expanded="false" aria-controls="menu-initiatives">Our Initiatives<span class="nav__caret" aria-hidden="true"></span></button>
+          <ul class="nav__menu" id="menu-initiatives">
+            <li><a href="research.html">Research &amp; Publications</a></li>
+            <li><a href="awareness.html">Awareness Programmes</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--cta"><a class="btn btn--gold nav__cta" href="contact.html">Contact us</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -135,10 +131,11 @@
         <h2 class="footer-nav__title" id="fn-explore">Explore</h2>
         <ul>
           <li><a href="index.html#about">About us</a></li>
-          <li><a href="index.html#digital-safety">Digital safety</a></li>
-          <li><a href="index.html#know-your-rights">Know your rights</a></li>
-          <li><a href="index.html#research">Research &amp; Publications</a></li>
-          <li><a href="index.html#awareness">Awareness programmes</a></li>
+          <li><a href="index.html#people">Teams</a></li>
+          <li><a href="digital-safety.html">Digital Safety</a></li>
+          <li><a href="know-your-rights.html">Know Your Rights</a></li>
+          <li><a href="research.html">Research &amp; Publications</a></li>
+          <li><a href="awareness.html">Awareness Programmes</a></li>
         </ul>
       </nav>
       <nav class="footer-nav" aria-labelledby="fn-org">

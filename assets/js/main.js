@@ -1,6 +1,6 @@
 /* Pothikrit — small progressive-enhancement script (no dependencies).
    Everything on the site works without it; this adds the mobile menu,
-   header shadow, scroll reveal and friendlier contact-form handling. */
+   nav dropdowns, scroll reveal and friendlier contact-form handling. */
 (function () {
   "use strict";
 
@@ -9,17 +9,76 @@
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Mobile navigation ------------------------------------------------ */
+  /* ---- Navigation: mobile menu + dropdowns (disclosure pattern) ---------- */
   var header = document.querySelector(".site-header");
   var toggle = document.querySelector(".nav-toggle");
   var panel = document.getElementById("nav-panel");
+  var triggers = Array.prototype.slice.call(document.querySelectorAll(".nav__trigger"));
+  var desktopMq = window.matchMedia ? window.matchMedia("(min-width: 900px)") : { matches: true };
+  var hoverMq = window.matchMedia ? window.matchMedia("(hover: hover) and (pointer: fine)") : { matches: false };
+
+  function setDropdown(btn, open) {
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function closeDropdowns(except) {
+    triggers.forEach(function (b) { if (b !== except) setDropdown(b, false); });
+  }
 
   function setMenu(open) {
     if (!header || !toggle) return;
     header.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (!open) closeDropdowns();
   }
+
+  triggers.forEach(function (btn) {
+    var item = btn.parentNode;
+    // <button> fires click on Enter/Space, so this covers mouse, touch and keyboard.
+    // If hover has just opened it, the click that follows should keep it open
+    // rather than toggle it shut.
+    var openedByHover = false;
+    btn.addEventListener("click", function () {
+      var open = openedByHover || btn.getAttribute("aria-expanded") !== "true";
+      openedByHover = false;
+      closeDropdowns(btn);
+      setDropdown(btn, open);
+    });
+    // Desktop with a real pointer: also open on hover.
+    var hoverTimer;
+    item.addEventListener("mouseenter", function () {
+      if (!desktopMq.matches || !hoverMq.matches) return;
+      clearTimeout(hoverTimer);
+      if (btn.getAttribute("aria-expanded") !== "true") openedByHover = true;
+      closeDropdowns(btn);
+      setDropdown(btn, true);
+    });
+    item.addEventListener("mouseleave", function () {
+      if (!desktopMq.matches || !hoverMq.matches) return;
+      openedByHover = false;
+      hoverTimer = setTimeout(function () { setDropdown(btn, false); }, 150);
+    });
+    // Close when keyboard focus leaves the dropdown (desktop).
+    item.addEventListener("focusout", function (e) {
+      if (desktopMq.matches && e.relatedTarget && !item.contains(e.relatedTarget)) setDropdown(btn, false);
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".nav__item--has-menu")) closeDropdowns();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    var openBtn = triggers.filter(function (b) { return b.getAttribute("aria-expanded") === "true"; })[0];
+    if (openBtn) {
+      setDropdown(openBtn, false);
+      openBtn.focus();
+    } else if (toggle && toggle.getAttribute("aria-expanded") === "true") {
+      setMenu(false);
+      toggle.focus();
+    }
+  });
 
   if (toggle && panel) {
     toggle.addEventListener("click", function () {
@@ -29,24 +88,9 @@
     panel.addEventListener("click", function (e) {
       if (e.target.closest("a")) setMenu(false);
     });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
-        setMenu(false);
-        toggle.focus();
-      }
-    });
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 1140) setMenu(false);
+      if (desktopMq.matches && toggle.getAttribute("aria-expanded") === "true") setMenu(false);
     });
-  }
-
-  /* ---- Sticky header shadow -------------------------------------------- */
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle("is-scrolled", window.scrollY > 8);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
   }
 
   /* ---- Reveal on scroll -------------------------------------------------- */
