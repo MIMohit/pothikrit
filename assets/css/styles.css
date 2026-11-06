@@ -383,12 +383,23 @@ h1, h2, h3 { text-wrap: balance; }
   .nav__menu a:hover, .nav__menu a[aria-current="page"] { color: var(--gold); }
   .nav__item--cta { margin: 20px 0 0; border-bottom: 0; }
   .nav__cta { width: 100%; min-height: 48px; }
+  /* Keep the menu button on the brand's row: the brand shrinks instead. */
+  .brand { flex: 1 1 0; }
+  .nav-toggle { flex: 0 0 auto; margin-left: 12px; }
 }
-@media (max-width: 380px) {
+@media (max-width: 600px) {
   .brand { gap: 10px; }
   .brand__logo { width: 44px; height: 44px; }
-  .brand__org { font-size: 9px; letter-spacing: 0.05em; }
-  .brand__en { font-size: 20px; }
+  .brand__en { font-size: 19px; }
+  .brand__bn { font-size: 14px; }
+  .brand__text { gap: 4px; }
+  .brand__org { font-size: 8.5px; letter-spacing: 0.03em; line-height: 1.35; }
+  .brand__org br { display: none; }
+}
+@media (max-width: 380px) {
+  .brand__logo { width: 40px; height: 40px; }
+  .brand__org { font-size: 8px; letter-spacing: 0.02em; }
+  .brand__en { font-size: 18px; }
   .brand__bn { font-size: 14px; }
 }
 
